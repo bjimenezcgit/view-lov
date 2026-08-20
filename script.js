@@ -2,7 +2,7 @@
   'use strict';
 
   const MIN_PLAY_SECONDS = 90;
-  const TARGET_VOLUME = 0.18;
+  const TARGET_VOLUME = 0.04;
   const FADE_IN_MS = 4000;
   const FADE_OUT_MS = 3000;
 
@@ -73,7 +73,9 @@
     }
 
     function createParticles() {
-      const count = Math.min(45, Math.floor(width / 28));
+      const count = width < 768
+        ? Math.min(28, Math.floor(width / 26))
+        : Math.min(45, Math.floor(width / 28));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
