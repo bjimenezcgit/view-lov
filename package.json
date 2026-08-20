@@ -1,0 +1,11 @@
+{
+  "name": "querer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Página poética con audio ambiental",
+  "scripts": {
+    "dev": "npx --yes serve . -p 3000",
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
+  }
+}

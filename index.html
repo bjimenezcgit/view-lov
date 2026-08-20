@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Querer — una página poética">
+  <title>Querer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>♥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Capas atmosféricas -->
+  <div class="atmosphere" aria-hidden="true">
+    <div class="atmosphere__mesh"></div>
+    <canvas id="particles"></canvas>
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+    <div class="grain"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Indicador de carga -->
+  <div id="loader" class="loader" aria-live="polite">
+    <div class="loader__inner">
+      <span class="loader__line"></span>
+      <p class="loader__text">Despertando el silencio…</p>
+    </div>
+  </div>
+
+  <!-- Control de audio sutil -->
+  <button id="audio-toggle" class="audio-toggle" aria-label="Activar música ambiental" hidden>
+    <svg class="audio-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+      <path class="audio-toggle__wave" d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      <path class="audio-toggle__wave" d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    </svg>
+    <span class="audio-toggle__label">Escuchar</span>
+  </button>
+
+  <div id="audio-progress" class="audio-progress" aria-hidden="true">
+    <div class="audio-progress__bar"></div>
+  </div>
+
+  <audio id="ambient-audio" preload="auto" loop>
+    <source src="assets/querer.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Navegación lateral -->
+  <nav class="side-nav" aria-label="Secciones">
+    <a href="#inicio" class="side-nav__dot is-active" data-section="inicio" aria-label="Inicio"></a>
+    <a href="#fragmento-i" class="side-nav__dot" data-section="fragmento-i" aria-label="Fragmento I"></a>
+    <a href="#fragmento-ii" class="side-nav__dot" data-section="fragmento-ii" aria-label="Fragmento II"></a>
+    <a href="#fragmento-iii" class="side-nav__dot" data-section="fragmento-iii" aria-label="Fragmento III"></a>
+    <a href="#fragmento-iv" class="side-nav__dot" data-section="fragmento-iv" aria-label="Fragmento IV"></a>
+    <a href="#epilogo" class="side-nav__dot" data-section="epilogo" aria-label="Epílogo"></a>
+  </nav>
+
+  <main>
+
+    <!-- Hero -->
+    <section id="inicio" class="section section--hero" data-section="inicio">
+      <div class="section__content reveal">
+        <p class="eyebrow">Una carta en movimiento</p>
+        <h1 class="hero__title">
+          <span class="hero__title-line">Querer</span>
+        </h1>
+        <p class="hero__subtitle">Donde el tiempo se vuelve susurro y la distancia, promesa.</p>
+        <div class="scroll-hint" aria-hidden="true">
+          <span>Descender</span>
+          <div class="scroll-hint__line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fragmento I -->
+    <section id="fragmento-i" class="section" data-section="fragmento-i">
+      <div class="section__content reveal">
+        <span class="section__number">I</span>
+        <h2 class="section__title">Primer aliento</h2>
+        <div class="prose">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>Curabitur pretium tincidunt lacus. Nulla facilisi. Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed augue.</p>
+          <p>Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.</p>
+          <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Morbi lacinia molestie dui. Praesent blandit dolor sit amet dui.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fragmento II -->
+    <section id="fragmento-ii" class="section section--offset" data-section="fragmento-ii">
+      <div class="section__content reveal">
+        <span class="section__number">II</span>
+        <h2 class="section__title">La penumbra cálida</h2>
+        <div class="prose">
+          <p>Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.</p>
+          <p>Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo.</p>
+          <p>Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta ut, ligula.</p>
+          <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
+          <p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fragmento III -->
+    <section id="fragmento-iii" class="section" data-section="fragmento-iii">
+      <div class="section__content reveal">
+        <span class="section__number">III</span>
+        <h2 class="section__title">Ecos entre líneas</h2>
+        <div class="prose">
+          <p>Sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+          <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
+          <p>Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.</p>
+          <p>Quisque gravida magna sit amet nulla suscipit malesuada. Nunc vel risus commodo, viverra orci vel, consectetur nisl. Donec vel sapien in libero venenatis faucibus.</p>
+          <p>Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. Fusce commodo aliquam arcu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fragmento IV -->
+    <section id="fragmento-iv" class="section section--offset" data-section="fragmento-iv">
+      <div class="section__content reveal">
+        <span class="section__number">IV</span>
+        <h2 class="section__title">Última luz</h2>
+        <div class="prose">
+          <p>In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi.</p>
+          <p>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae.</p>
+          <p>Justo nec condimentum vehicula, sem justo cursus lorem, ut mattis libero nunc sit amet elit. Suspendisse potenti. Nullam mollis.</p>
+          <p>Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum.</p>
+          <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Epílogo -->
+    <section id="epilogo" class="section section--epilogue" data-section="epilogo">
+      <div class="section__content reveal">
+        <blockquote class="epilogue__quote">
+          <p>Queda el silencio<br>donde antes había<br><em>querer.</em></p>
+        </blockquote>
+        <p class="epilogue__note">Los textos de esta página serán reemplazados pronto.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
